@@ -21,7 +21,7 @@ axios.get("https://lanciweb.github.io/demo/api/pictures/").then(function (resp) 
 
         cardStr = cardStr +
             `<div class="col ">
-            <div class="card bg-white">
+            <div class="card bg-white data-postid">
              <img src="${url}" alt="${title}">
             <p class="data p-top-15">${date}</p>
             <h2 class="titoli">${title}</h2>
@@ -37,34 +37,64 @@ axios.get("https://lanciweb.github.io/demo/api/pictures/").then(function (resp) 
 
     //richiamo tutti gli elemnti dell'HTML che mi servono per generare un evento
 
-    const cardElem = document.querySelectorAll(".card");
+
     const overlayElem = document.querySelector(".overlay");
     const cardShowedElem = document.querySelector(".card-showed");
-    console.log(cardElem, overlayElem, cardShowedElem);
 
-    //se clicco su una qualiasi card mi comparr l'overlay con l'immagine e il tasto chiudi
+      const cardElem = document.querySelectorAll(".card");
+    //aggiungere un eventlistener per ogni card
     cardElem.forEach(card => {
         card.addEventListener("click", function () {
-            overlayElem.classList.remove("hidden");
-            cardShowedElem.classList.remove("hidden");
-        })
+            const imgElem = card.querySelector("img").src
+            const titleElem = card.querySelector("h2").textContent
 
-        //se clicco su button chiudi sparisce nuovamente
-        const chiudBtn = document.querySelector("button");
-        chiudBtn.addEventListener("click", function () {
-            overlayElem.classList.add("hidden");
-            cardShowedElem.classList.add("hidden");
-        })
+
+
+
+            cardShowedElem.innerHTML = `    
+           <button class="m-bottom">Chiudi</button>
+            <img src="${imgElem}" alt="${titleElem}">`
+
+                  overlayElem.classList.remove("hidden");
+        cardShowedElem.classList.remove("hidden");
         
-        //Milestone 3 Inseriamo il pezzo di logica finale: 
-        // quando una foto viene cliccata, dobbiamo fare in 
-        // modo che sia proprio quella foto a essere mostrata all’interno dell’overlay.
+  const chiudBtn = cardShowedElem.querySelector("button");
+    chiudBtn.addEventListener("click", function () {
+        overlayElem.classList.add("hidden");
+        cardShowedElem.classList.add("hidden");
 
+        });
+
+         
     })
+    });
+
+
+    //se clicco su una qualiasi card mi comparr l'overlay con l'immagine 
+    // cardElem.forEach(card => {
+    //     card.addEventListener("click", function () {
+    //         overlayElem.classList.remove("hidden");
+    //         cardShowedElem.classList.remove("hidden");
+    //     })
+    // })
+
+    //bottone chiudi
+ 
+
+    //Milestone 3 Inseriamo il pezzo di logica finale: 
+    // quando una foto viene cliccata, dobbiamo fare in 
+    // modo che sia proprio quella foto a essere mostrata all’interno dell’overlay.
+
+    //applico la modifica 
+    //prelevo tutte le card
+  
+
+
+
+
+
 
 
 
 });
-
-
 
