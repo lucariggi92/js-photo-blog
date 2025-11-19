@@ -13,86 +13,97 @@ img {
 
 
 /* //UTILITIES */
-.flex{
+.flex {
     display: flex;
     align-items: center;
 }
 
-.justify-center{
-justify-content: center;
+.justify-center {
+    justify-content: center;
 }
 
-.align-center{
-align-items: center;
+.align-center {
+    align-items: center;
 }
 
-.space-between{
+.space-between {
     justify-content: space-between;
 }
 
-.wrap{
+.wrap {
     flex-wrap: wrap;
 }
 
-.gap{
+.gap {
     gap: 20px;
 }
 
-.bg-white{
+.bg-white {
     background-color: white;
 }
 
-.titoli{
-font-family: 'Edu Tas Beginner', sans-serif;
-   text-transform: uppercase;
+.titoli {
+    font-family: 'Edu Tas Beginner', sans-serif;
+    text-transform: uppercase;
 }
 
-.data{
-    font-family: 'Sometype Mono', monospace ;
+.data {
+    font-family: 'Sometype Mono', monospace;
     color: gray;
     font-weight: 900;
 }
 
-.p-top{
+.p-top {
     padding-top: 200px;
 }
-.p-bottom{
+
+.p-bottom {
     padding-bottom: 200px;
 }
 
-.p-top-15{
+.p-top-15 {
     padding-top: 15px;
 }
+
+.m-bottom{
+    margin-bottom: 40px;
+}
+.p-x{
+    padding-right: 100px;
+    padding-left: 100px;
+}
+position-relative
 
 /* //LAYOUT */
 .container {
     width: 90%;
     max-width: 1000px;
     margin: 0 auto;
-    /* border:1px solid black; debug */
-}
-
-.col{
-    width:calc(100%);
-    border: 2px solid black;
-      position: relative;
-}
-
-.card{
-    padding:20px;
-    height: 100%;
-  
-}
-
-header{
     
-  background-image: url(./img/wall.png);
-   display: flex;
-   justify-content: center;
-   align-items: center;
+
+}
+
+.col {
+    width: calc(100%);
+    position: relative;
+}
+
+.card {
+    padding: 20px;
+    height: 100%;
+    box-shadow: 5px 8px 8px 0;
+
+}
+
+header {
+
+    background-image: url(./img/wall.png);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     position: fixed;
-    top:0;
+    top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
@@ -100,16 +111,54 @@ header{
 
 }
 
-main{
+main {
     background-image: url(./img/cork.png);
     height: 100%;
+   
+}
+
+body {
+    position: relative;
+   
+
 }
 
 /* //CARD */
-.pin{
+.pin {
     position: absolute;
-    bottom:93%;
+    bottom: 93%;
     right: 45%;
 
 
+}
+
+
+.overlay {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    z-index: 1001;
+    opacity: 0.65;
+    position: absolute;
+    top: 0;
+display: none;
+}
+
+
+.card-showed {
+        z-index: 1002;
+        flex-direction: column;
+        position: absolute;
+        top: 2%;
+       left: calc(100% / 4);
+        width: calc(100% / 2);
+        display: none;
+   }
+
+.card-showed button {
+     z-index:1002;
+     padding: 10px 20px;
+     background-color: white;
+     font-size: 2rem;
+    
 }
