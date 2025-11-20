@@ -155,12 +155,14 @@ body {
 .card-showed {
         z-index: 1002;
         flex-direction: column;
-        position: absolute;
+        position: fixed;
         top: 2%;
        left: calc(100% / 4);
         width: calc(100% / 2);
-      
+
+
    }
+
 
 .card-showed button {
      z-index:1002;
